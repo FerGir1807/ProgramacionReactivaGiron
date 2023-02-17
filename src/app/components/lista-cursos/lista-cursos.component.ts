@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { filter, from, map, of, Subscription } from 'rxjs';
+import { filter, from, map, Observable, of, Subscription } from 'rxjs';
 import { Curso } from 'src/app/models/curso';
 import { CursosService } from 'src/app/services/cursos.service';
 
@@ -12,6 +12,8 @@ import { CursosService } from 'src/app/services/cursos.service';
 export class ListaCursosComponent implements OnInit, OnDestroy {
 
   suscription!: Subscription;
+  cursos$: Observable<Curso[]> = new Observable();
+
   constructor(private cursoService: CursosService) {
 
   }
@@ -29,6 +31,9 @@ export class ListaCursosComponent implements OnInit, OnDestroy {
     this.suscription = this.cursoService.obtenerCursosObservable().subscribe((cursos) => {
       this.cursosObservable = cursos;
     })
+
+    this.cursos$ = this.cursoService.obtenerCursosObservable();
+    this.cursos$.subscribe();
   }
 
   cursosPromesas: Curso[] = [];
