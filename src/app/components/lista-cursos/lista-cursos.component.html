@@ -1,0 +1,54 @@
+<h4>Información con Promesas</h4>
+<div class="container">
+    <div class="row">
+        <div class="col" *ngFor="let curso of cursosPromesas">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>{{curso.nombre}}</mat-card-title>
+                    <mat-card-subtitle>{{curso.comision}}</mat-card-subtitle>
+                </mat-card-header>
+                <img class="card-image" mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                    alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                    <p>Impartido por: {{curso.profesor.nombre}}</p>
+                </mat-card-content>
+                <mat-card-actions align="end">
+                    <button mat-icon-button color="primary">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>
+<hr>
+<h4>Información con Observable</h4>
+<button mat-raised-button color="primary" (click)="agregarCursoObservable()">Agregar Curso</button>
+<div class="container">
+    <div class="row">
+        <div class="col" *ngFor="let curso of cursosObservable">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>{{curso.nombre}}</mat-card-title>
+                    <mat-card-subtitle>{{curso.comision}}</mat-card-subtitle>
+                </mat-card-header>
+                <img class="card-image" mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                    alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                    <p>Impartido por: {{curso.profesor.nombre}}</p>
+                </mat-card-content>
+                <mat-card-actions align="end">
+                    <button mat-icon-button color="primary">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>
